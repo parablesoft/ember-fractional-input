@@ -1,0 +1,1 @@
+export { default } from 'ember-fractional-input/components/fractional-input';

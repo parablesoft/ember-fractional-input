@@ -1,5 +1,29 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <h1>Fractional Input</h1>
+    <hr>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-6">
+    {{#with (changeset lineItem LineItemValidations) as |changeset|}}
+      {{#validated-input 
+      propertyName="width"
+      changeset=changeset
+      as |blurred|}}
+	{{fractional-input on-blur=blurred label-text="Width" value=changeset.width }}
+      {{/validated-input}}
+    {{/with}}
 
-{{outlet}}
+    {{fractional-input label-text="Left Height" value=lineItem.details.left_height}}
+
+    {{fractional-input label-text="Right Height" value=lineItem.details.right_height }}
+    <br/>
+    Width: {{lineItem.details.width}}
+    Left Height: {{lineItem.details.left_height}}
+    Right Height: {{lineItem.details.right_height}}
+    <br/>
+  </div>
+</div>
+</div>

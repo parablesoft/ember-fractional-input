@@ -1,4 +1,6 @@
 {
   "name": "ember-fractional-input",
-  "dependencies": {}
+  "dependencies": {
+    "selectize": "miguelcobain/selectize.js#master"
+  }
 }

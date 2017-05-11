@@ -1,0 +1,7 @@
+.ember-fractional-input .selectize-control {
+  margin-left: 10px;
+  width:100px;
+}
+.ember-fractional-input .selectize-control .selectize-input {
+  height:34px;
+}
