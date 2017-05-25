@@ -42,6 +42,9 @@ export default Ember.Component.extend({
   }),
   getWhole(key){
     let fullNumber = this.get(key);
+    if(fullNumber===undefined)
+      return "";
+
     return parseInt(fullNumber);
   },
   setWhole(key,value){

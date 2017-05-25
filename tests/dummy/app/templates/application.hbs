@@ -14,15 +14,15 @@
       as |blurred|}}
 	{{fractional-input on-blur=blurred label-text="Width" value=changeset.width }}
       {{/validated-input}}
-    {{/with}}
 
     {{fractional-input label-text="Left Height" value=lineItem.details.left_height}}
 
     {{fractional-input label-text="Right Height" value=lineItem.details.right_height }}
     <br/>
-    Width: {{lineItem.details.width}}
+    Width: {{changeset.width}}
     Left Height: {{lineItem.details.left_height}}
     Right Height: {{lineItem.details.right_height}}
+    {{/with}}
     <br/>
   </div>
 </div>

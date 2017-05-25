@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-fractional-input'
+  name: 'ember-fractional-input',
+  isDevelopingAddon: function() {
+    return true;
+  },
 };
