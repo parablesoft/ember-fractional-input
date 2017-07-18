@@ -9,9 +9,9 @@ export default Ember.Component.extend({
   placeholder: 'Enter your value',
   actions:{
     blurred(){
-     if(this.attrs["on-blur"]){
-       this.attrs["on-blur"]();
-     }
+      if(this.attrs["on-blur"]){
+	this.attrs["on-blur"]();
+      }
     }
   },
   denominator: 16,
@@ -19,13 +19,15 @@ export default Ember.Component.extend({
     let denominator = this.get("denominator");
     let result = Ember.A();
     for(let i = 1; i < denominator; i++){
-      result.pushObject({value: parseFloat(i/denominator), display: `${i}/${denominator}`});
+      let displayValue = this.reduceFraction(i,denominator);
+
+      result.pushObject({value: parseFloat(i/denominator), display: `${displayValue[0]}/${displayValue[1]}`});
     }
     return result;
   }),
 
   valueWhole: Ember.computed({
-    get(key){
+    get(){
       return this.getWhole("value");
     },
     set(key,value){
@@ -33,7 +35,7 @@ export default Ember.Component.extend({
     }
   }),
   valueFraction: Ember.computed({
-    get(key){
+    get(){
       return this.getFraction("value");
     },
     set(key,value){
@@ -49,7 +51,6 @@ export default Ember.Component.extend({
   },
   setWhole(key,value){
     let calcValue = this.calcValue(value);
-    let unit = this.get(key);
     let fraction = this.calcValue(this.get(`${key}Fraction`));
     this.set(key, parseFloat(calcValue) + parseFloat(fraction));
     return value;
@@ -60,13 +61,18 @@ export default Ember.Component.extend({
   },
   setFraction(key,value){
     let calcValue = this.calcValue(value);
-    let unit = this.get(key);
     let whole = this.calcValue(this.get(`${key}Whole`));
-
     this.set(key, parseFloat(whole) + parseFloat(calcValue));
     return value;
   },
   calcValue(value){
     return Ember.isEmpty(value) || isNaN(value) ? 0 : value;
+  },
+  reduceFraction(numerator,denominator){
+    var gcd = function gcd(a,b){
+      return b ? gcd(b, a%b) : a;
+    };
+    gcd = gcd(numerator,denominator);
+    return [numerator/gcd, denominator/gcd];
   }
 });

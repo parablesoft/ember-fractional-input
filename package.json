@@ -1,6 +1,6 @@
 {
   "name": "ember-fractional-input",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An input that allows you to enter a whole number and select a fraction",
   "keywords": [
     "ember-addon",
