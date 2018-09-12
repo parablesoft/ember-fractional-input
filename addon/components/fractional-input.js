@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import { isEmpty } from '@ember/utils';
+import { A } from '@ember/array';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import layout from '../templates/components/fractional-input';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames:["ember-fractional-input"],
   "wrapper-class": "form-group",
@@ -15,9 +18,9 @@ export default Ember.Component.extend({
     }
   },
   denominator: 16,
-  fractions: Ember.computed(function(){
+  fractions: computed(function(){
     let denominator = this.get("denominator");
-    let result = Ember.A();
+    let result = A();
     for(let i = 1; i < denominator; i++){
       let displayValue = this.reduceFraction(i,denominator);
 
@@ -26,7 +29,7 @@ export default Ember.Component.extend({
     return result;
   }),
 
-  valueWhole: Ember.computed({
+  valueWhole: computed({
     get(){
       return this.getWhole("value");
     },
@@ -34,7 +37,7 @@ export default Ember.Component.extend({
       return this.setWhole("value",value);
     }
   }),
-  valueFraction: Ember.computed({
+  valueFraction: computed({
     get(){
       return this.getFraction("value");
     },
@@ -66,7 +69,7 @@ export default Ember.Component.extend({
     return value;
   },
   calcValue(value){
-    return Ember.isEmpty(value) || isNaN(value) ? 0 : value;
+    return isEmpty(value) || isNaN(value) ? 0 : value;
   },
   reduceFraction(numerator,denominator){
     var gcd = function gcd(a,b){

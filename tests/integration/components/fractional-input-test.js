@@ -1,21 +1,23 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('fractional-input', 'Integration | Component | fractional input', {
-  integration: true
-});
+module('Integration | Component | fractional input', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{fractional-input}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{fractional-input}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom('*').hasText('');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#fractional-input}}
-      template block text
-    {{/fractional-input}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#fractional-input}}
+        template block text
+      {{/fractional-input}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.dom('*').hasText('template block text');
+  });
 });
