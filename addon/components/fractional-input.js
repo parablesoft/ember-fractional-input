@@ -44,7 +44,7 @@ export default Ember.Component.extend({
   }),
   getWhole(key){
     let fullNumber = this.get(key);
-    if(fullNumber===undefined)
+    if(fullNumber===undefined || isNaN(fullNumber) || fullNumber === null)
       return "";
 
     return parseInt(fullNumber);
