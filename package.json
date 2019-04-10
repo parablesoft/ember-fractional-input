@@ -1,6 +1,6 @@
 {
   "name": "ember-fractional-input",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "An input that allows you to enter a whole number and select a fraction",
   "keywords": [
     "ember-addon",
@@ -8,53 +8,63 @@
     "helpers",
     "template helpers"
   ],
+  
   "license": "MIT",
-  "author": "Vic Amuso <vic@parablesoft.com>",
-  "repository": "https://github.com/parablesoft/ember-fractional-input",
-  "bugs": "https://github.com/parablesoft/ember-fractional-input/issues",
-  "homepage": "https://github.com/parablesoft/ember-fractional-input",
+  "author": "Vic Amuso <vic@parablesoft.com>",  
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/parablesoft/ember-fractional-input",
+  "bugs": "https://github.com/parablesoft/ember-fractional-input/issues",
+  "homepage": "https://github.com/parablesoft/ember-fractional-input",
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
-    "test": "ember try:each"
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "start": "ember serve",
+    "test": "ember test",
+    "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-selectize": "^0.5.12",
-    "ember-cli-htmlbars": "^1.1.1",
-    "ember-cli-babel": "^5.1.7"
+    "ember-cli-babel": "^6.16.0",
+    "ember-cli-htmlbars": "^3.0.0",
+    "ember-cli-selectize": "^0.6.0"
   },
   "devDependencies": {
+    "@ember/optional-features": "^0.6.3",
     "bootstrap": "^3.3.7",
-    "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^2.4.1",
-    "ember-bootstrap": "^1.0.0-alpha.12",
+    "broccoli-asset-rev": "^2.7.0",
+    "ember-ajax": "^3.1.0",
+    "ember-bootstrap": "^1.2.2",
     "ember-changeset-validations": "^1.2.7",
     "ember-changeset-validations-template-helpers": "0.0.3",
-    "ember-cli": "2.12.1",
-    "ember-cli-dependency-checker": "^1.3.0",
-    "ember-cli-eslint": "^3.0.0",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.6",
-    "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-qunit": "^3.1.0",
-    "ember-cli-shims": "^1.0.2",
-    "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "^1.2.0",
+    "ember-cli": "~3.4.2",
+    "ember-cli-dependency-checker": "^3.0.0",
+    "ember-cli-eslint": "^4.2.3",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.3",
+    "ember-cli-inject-live-reload": "^1.8.2",
+    "ember-cli-qunit": "^4.3.2",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-template-lint": "^1.0.0-beta.1",
+    "ember-cli-uglify": "^2.1.0",
     "ember-data": "^2.13.1",
-    "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-export-application-global": "^1.0.5",
+    "ember-disable-prototype-extensions": "^1.1.3",
+    "ember-export-application-global": "^2.0.0",
     "ember-get-config": "^0.2.1",
-    "ember-load-initializers": "^0.6.0",
-    "ember-resolver": "^2.0.3",
-    "ember-source": "~2.12.0",
-    "loader.js": "^4.2.3"
+    "ember-load-initializers": "^1.1.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-resolver": "^5.0.1",
+    "ember-source": "~3.4.0",
+    "ember-source-channel-url": "^1.1.0",
+    "ember-try": "^1.0.0",
+    "eslint-plugin-ember": "^5.2.0",
+    "eslint-plugin-node": "^7.0.1",
+    "loader.js": "^4.7.0",
+    "qunit-dom": "^0.7.1"
   },
   "engines": {
-    "node": ">= 4"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

@@ -1,9 +1,9 @@
-import Ember from "ember";
-const {Controller} = Ember;
+import { alias } from '@ember/object/computed';
+import Controller from '@ember/controller';
 import LineItemValidations from "../validations/line-item-validations";
 export default Controller.extend({
   LineItemValidations,
-  lineItem: Ember.computed.alias("model"),
+  lineItem: alias("model"),
   actions:{
     something(){
     }

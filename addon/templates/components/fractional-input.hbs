@@ -4,7 +4,7 @@
   {{/if}}
   <div class="clearfix">
     <div class="pull-left">
-      {{input placeholder=placeholder value=valueWhole focus-out="blurred" class=input-class}}
+      {{input placeholder=placeholder value=valueWhole focus-out=(action "blurred") class=input-class}}
     </div>
     <div class="pull-left">
       {{ember-selectize
