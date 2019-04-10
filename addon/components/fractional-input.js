@@ -60,6 +60,9 @@ export default Component.extend({
   },
   getFraction(key) {
     let fraction = this.get(key);
+    if(fraction === undefined)
+      return null
+
     return fraction - parseInt(fraction);
   },
   setFraction(key, value) {
